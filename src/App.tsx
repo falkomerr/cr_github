@@ -25,6 +25,7 @@ export default function App() {
       <div className="mx-auto flex w-full max-w-[100vw] flex-col items-center justify-center gap-4 overflow-hidden bg-white dark:bg-black lg:flex-row">
         <Card>
           <CanvasRevealEffect
+            showGradient
             animationSpeed={7}
             containerClassName="bg-sky-600"
             colors={[[125, 211, 252]]}
