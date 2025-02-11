@@ -11,9 +11,7 @@ export default function App() {
 
   useEffect(() => {
     const handleKey = (event: KeyboardEvent) => {
-      if (event.code === 'Space') {
-        setVisibleColumns((prev) => prev + 1);
-      }
+      setVisibleColumns((prev) => prev + 1);
     };
 
     document.addEventListener('keydown', handleKey);
@@ -39,7 +37,7 @@ export default function App() {
               <TypingAnimation
                 showCaret={visibleColumns === 1}
                 duration={50}
-                className="font-monospace absolute left-4 top-8 max-w-[22.5rem] whitespace-pre-line text-start text-[0.875rem] font-bold text-white"
+                className="absolute left-4 top-8 max-w-[22.5rem] whitespace-pre-line text-start font-monospace text-[0.875rem] font-bold text-white"
                 text="$ agent_status
                   "
               />
@@ -50,7 +48,7 @@ export default function App() {
             <TypingAnimation
               showCaret={visibleColumns === 2}
               duration={50}
-              className="font-monospace absolute left-4 top-12 max-w-[22.5rem] whitespace-pre-line text-start text-[0.875rem] font-bold text-white"
+              className="absolute left-4 top-12 max-w-[22.5rem] whitespace-pre-line text-start font-monospace text-[0.875rem] font-bold text-white"
               text="        name: XHUNTER
 
                   "
@@ -61,7 +59,7 @@ export default function App() {
             <TypingAnimation
               showCaret={visibleColumns === 3}
               duration={50}
-              className="font-monospace absolute left-4 top-16 max-w-[22.5rem] whitespace-pre-line text-start text-[0.875rem] font-bold text-white"
+              className="absolute left-4 top-16 max-w-[22.5rem] whitespace-pre-line text-start font-monospace text-[0.875rem] font-bold text-white"
               text="        eliza_runtime: v0.1.9
 
                   "
@@ -72,7 +70,7 @@ export default function App() {
             <TypingAnimation
               showCaret={visibleColumns === 4}
               duration={50}
-              className="font-monospace absolute left-4 top-20 max-w-[22.5rem] whitespace-pre-line text-start text-[0.875rem] font-bold text-white"
+              className="absolute left-4 top-20 max-w-[22.5rem] whitespace-pre-line text-start font-monospace text-[0.875rem] font-bold text-white"
               text="        source: https://xhunterai.com/
 
                   "
@@ -82,9 +80,9 @@ export default function App() {
             <TypingAnimation
               showCaret={visibleColumns >= 5}
               duration={50}
-              className="font-monospace absolute left-4 top-[6.2rem] max-w-[22.5rem] whitespace-pre-line text-start text-[0.875rem] font-bold leading-[0.9rem] text-white"
+              className="absolute left-4 top-[6.2rem] max-w-[22.5rem] whitespace-pre-line text-start font-monospace text-[0.875rem] font-bold leading-[0.9rem] text-white"
               text="
-        contract_address: 6VtLk3Q7d9cDQ9RxJaMU7aa7GW6NZQpnBiUbve4Ypump
+        Loading...
 
                   "
             />
@@ -146,7 +144,7 @@ const Text = () => {
         }}>
         <div className="flex flex-col justify-center pl-6 pt-4 leading-none">
           <div className="flex items-center gap-x-4">
-            <p className="font-homespun max-w-[32.8125rem] text-[1.5rem] leading-[2rem]">
+            <p className="max-w-[32.8125rem] font-homespun text-[1.5rem] leading-[2rem]">
               Subscribe to our
             </p>
 
@@ -156,11 +154,11 @@ const Text = () => {
               className="z-50 cursor-pointer transition-all duration-200 hover:scale-[1.1]">
               <img src="/twitter.svg" alt="twitter" width={48} height={48} />
             </a>
-            <p className="font-homespun max-w-[32.8125rem] text-[1.5rem] leading-[2rem]">
+            <p className="max-w-[32.8125rem] font-homespun text-[1.5rem] leading-[2rem]">
               account.
             </p>
           </div>
-          <p className="font-homespun -mt-6 max-w-[32.8125rem] text-[1.5rem]">
+          <p className="-mt-6 max-w-[32.8125rem] font-homespun text-[1.5rem]">
             <br /> Keep up to date with the latest news!
           </p>
 
