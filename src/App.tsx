@@ -9,7 +9,6 @@ import { TypingAnimation } from './components/typing-animation.tsx';
 export default function App() {
   const [visibleColumns, setVisibleColumns] = useState(1);
 
-
   useEffect(() => {
     const handleKey = (event: KeyboardEvent) => {
       if (event.code === 'Space') {
@@ -25,6 +24,7 @@ export default function App() {
     <>
       <div className="mx-auto flex w-full max-w-[100vw] flex-col items-center justify-center gap-4 overflow-hidden bg-white dark:bg-black lg:flex-row">
         <Card>
+          <Header />
           <CanvasRevealEffect
             showGradient
             animationSpeed={7}
@@ -35,18 +35,20 @@ export default function App() {
           <Text />
 
           {visibleColumns >= 1 && (
-            <TypingAnimation
-              duration={50}
-              className=
-              text="$ agent_status
+            <>
+              <TypingAnimation
+                duration={50}
+                className="font-monospace absolute left-4 top-8 max-w-[22.5rem] whitespace-pre-line text-start text-[0.875rem] font-bold text-white"
+                text="$ agent_status
                   "
-            />
+              />
+            </>
           )}
 
           {visibleColumns >= 2 && (
             <TypingAnimation
               duration={50}
-              className="absolute left-4 font-monospace top-8 max-w-[22.5rem] whitespace-pre-line text-start text-[0.875rem] font-bold text-white"
+              className="font-monospace absolute left-4 top-12 max-w-[22.5rem] whitespace-pre-line text-start text-[0.875rem] font-bold text-white"
               text="        name: AXAI
 
                   "
@@ -56,7 +58,7 @@ export default function App() {
           {visibleColumns >= 3 && (
             <TypingAnimation
               duration={50}
-              className="absolute left-4 font-monospace top-12 max-w-[22.5rem] whitespace-pre-line text-start text-[0.875rem] font-bold text-white"
+              className="font-monospace absolute left-4 top-16 max-w-[22.5rem] whitespace-pre-line text-start text-[0.875rem] font-bold text-white"
               text="        eliza_runtime: v0.1.9
 
                   "
@@ -66,7 +68,7 @@ export default function App() {
           {visibleColumns >= 4 && (
             <TypingAnimation
               duration={50}
-              className="absolute left-4 font-monospace top-16 max-w-[22.5rem] whitespace-pre-line text-start text-[0.875rem] font-bold text-white"
+              className="font-monospace absolute left-4 top-20 max-w-[22.5rem] whitespace-pre-line text-start text-[0.875rem] font-bold text-white"
               text="        source: github.com/elizaOS/eliza
 
                   "
@@ -75,7 +77,7 @@ export default function App() {
           {visibleColumns >= 5 && (
             <TypingAnimation
               duration={50}
-              className="absolute left-4 font-monospace top-[5.1rem] max-w-[22.5rem] whitespace-pre-line text-start text-[0.875rem] font-bold leading-[0.9rem] text-white"
+              className="font-monospace absolute left-4 top-[6.2rem] max-w-[22.5rem] whitespace-pre-line text-start text-[0.875rem] font-bold leading-[0.9rem] text-white"
               text="
         contract_address: 6VtLk3Q7d9cDQ9RxJaMU7aa7GW6NZQpnBiUbve4Ypump
 
@@ -128,7 +130,7 @@ const Text = () => {
 
   return (
     <div
-      className="absolute bottom-1/2 top-1/2 flex h-fit w-full -translate-y-1/2 flex-col items-center justify-center p-6 sm:p-12 md:p-16 lg:p-24"
+      className="absolute bottom-1/2 left-[52%] right-[60%] top-1/2 flex h-fit w-full -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center p-6 sm:p-12 md:p-16 lg:p-24"
       ref={containerRef}>
       <div
         className="relative flex w-full cursor-pointer items-center justify-center overflow-hidden text-white"
@@ -191,6 +193,29 @@ const Text = () => {
             containerRef={containerRef}
           />
         </div>
+      </div>
+    </div>
+  );
+};
+
+const Header = () => {
+  return (
+    <div className="absolute top-0 z-50 flex w-full justify-between px-20 py-[2rem]">
+      <div></div>
+      <div className="flex items-center gap-x-4 text-[1.625rem] uppercase text-white">
+        <p className="font-symtext cursor-pointer transition-all duration-300 hover:text-[#0E2639]">
+          about us
+        </p>
+        <p className="font-symtext cursor-pointer transition-all duration-300 hover:text-[#0E2639]">
+          logs
+        </p>
+        <p className="font-symtext cursor-pointer transition-all duration-300 hover:text-[#0E2639]">
+          contacts
+        </p>
+      </div>
+      <div className="flex cursor-pointer items-center">
+        <img src="/logo.svg" alt="logo" width={60} height={60} />
+        <p className="font-symtext text-[1.625rem] text-white">XHUNTER</p>
       </div>
     </div>
   );
