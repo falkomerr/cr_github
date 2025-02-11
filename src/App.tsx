@@ -37,6 +37,7 @@ export default function App() {
           {visibleColumns >= 1 && (
             <>
               <TypingAnimation
+                showCaret={visibleColumns === 1}
                 duration={50}
                 className="font-monospace absolute left-4 top-8 max-w-[22.5rem] whitespace-pre-line text-start text-[0.875rem] font-bold text-white"
                 text="$ agent_status
@@ -47,6 +48,7 @@ export default function App() {
 
           {visibleColumns >= 2 && (
             <TypingAnimation
+              showCaret={visibleColumns === 2}
               duration={50}
               className="font-monospace absolute left-4 top-12 max-w-[22.5rem] whitespace-pre-line text-start text-[0.875rem] font-bold text-white"
               text="        name: AXAI
@@ -57,6 +59,7 @@ export default function App() {
 
           {visibleColumns >= 3 && (
             <TypingAnimation
+              showCaret={visibleColumns === 3}
               duration={50}
               className="font-monospace absolute left-4 top-16 max-w-[22.5rem] whitespace-pre-line text-start text-[0.875rem] font-bold text-white"
               text="        eliza_runtime: v0.1.9
@@ -67,6 +70,7 @@ export default function App() {
 
           {visibleColumns >= 4 && (
             <TypingAnimation
+              showCaret={visibleColumns === 4}
               duration={50}
               className="font-monospace absolute left-4 top-20 max-w-[22.5rem] whitespace-pre-line text-start text-[0.875rem] font-bold text-white"
               text="        source: github.com/elizaOS/eliza
@@ -76,6 +80,7 @@ export default function App() {
           )}
           {visibleColumns >= 5 && (
             <TypingAnimation
+              showCaret={visibleColumns >= 5}
               duration={50}
               className="font-monospace absolute left-4 top-[6.2rem] max-w-[22.5rem] whitespace-pre-line text-start text-[0.875rem] font-bold leading-[0.9rem] text-white"
               text="
@@ -199,24 +204,39 @@ const Text = () => {
 };
 
 const Header = () => {
+  const linkClassname =
+    'font-symtext cursor-pointer underline transition-all duration-300 hover:text-[#0E2639]';
   return (
     <div className="absolute top-0 z-50 flex w-full justify-between px-20 py-[2rem]">
       <div></div>
-      <div className="flex items-center gap-x-4 text-[1.625rem] uppercase text-white">
-        <p className="font-symtext cursor-pointer transition-all duration-300 hover:text-[#0E2639]">
-          about us
-        </p>
-        <p className="font-symtext cursor-pointer transition-all duration-300 hover:text-[#0E2639]">
-          logs
-        </p>
-        <p className="font-symtext cursor-pointer transition-all duration-300 hover:text-[#0E2639]">
-          contacts
-        </p>
+      <div className="flex items-center gap-x-4 text-[1.2rem] uppercase text-white">
+        <EnterIcon />
+        <p className={linkClassname}>about us</p>
+        <EnterIcon />
+        <p className={linkClassname}>logs</p>
+        <EnterIcon />
+        <p className={linkClassname}>contacts</p>
       </div>
       <div className="flex cursor-pointer items-center">
         <img src="/logo.svg" alt="logo" width={60} height={60} />
         <p className="font-symtext text-[1.625rem] text-white">XHUNTER</p>
       </div>
     </div>
+  );
+};
+
+const EnterIcon = () => {
+  return (
+    <svg
+      width="16"
+      height="15"
+      viewBox="0 0 16 15"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M1 11H0.5V11.5H1V11ZM15.8536 11.3536C16.0488 11.1583 16.0488 10.8417 15.8536 10.6464L12.6716 7.46447C12.4763 7.2692 12.1597 7.2692 11.9645 7.46447C11.7692 7.65973 11.7692 7.97631 11.9645 8.17157L14.7929 11L11.9645 13.8284C11.7692 14.0237 11.7692 14.3403 11.9645 14.5355C12.1597 14.7308 12.4763 14.7308 12.6716 14.5355L15.8536 11.3536ZM0.5 0V11H1.5V0H0.5ZM1 11.5H15.5V10.5H1V11.5Z"
+        fill="white"
+      />
+    </svg>
   );
 };
