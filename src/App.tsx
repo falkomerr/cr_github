@@ -51,7 +51,7 @@ export default function App() {
               showCaret={visibleColumns === 2}
               duration={50}
               className="font-monospace absolute left-4 top-12 max-w-[22.5rem] whitespace-pre-line text-start text-[0.875rem] font-bold text-white"
-              text="        name: AXAI
+              text="        name: XHUNTER
 
                   "
             />
@@ -73,7 +73,7 @@ export default function App() {
               showCaret={visibleColumns === 4}
               duration={50}
               className="font-monospace absolute left-4 top-20 max-w-[22.5rem] whitespace-pre-line text-start text-[0.875rem] font-bold text-white"
-              text="        source: github.com/elizaOS/eliza
+              text="        source: https://xhunterai.com/
 
                   "
             />
@@ -89,6 +89,7 @@ export default function App() {
                   "
             />
           )}
+          <Footer />
         </Card>
       </div>
     </>
@@ -205,7 +206,7 @@ const Text = () => {
 
 const Header = () => {
   const linkClassname =
-    'font-symtext cursor-pointer underline transition-all duration-300 hover:text-[#0E2639]';
+    'font-symtext cursor-pointer underline transition-all duration-300 hover:mb-2 ';
   return (
     <div className="absolute top-0 z-50 flex w-full justify-between px-20 py-[2rem]">
       <div></div>
@@ -220,6 +221,27 @@ const Header = () => {
       <div className="flex cursor-pointer items-center">
         <img src="/logo.svg" alt="logo" width={60} height={60} />
         <p className="font-symtext text-[1.625rem] text-white">XHUNTER</p>
+      </div>
+    </div>
+  );
+};
+
+const Footer = () => {
+  const linkClassname =
+    'font-symtext cursor-pointer underline transition-all duration-300 hover:mb-2 ';
+  return (
+    <div className="absolute bottom-0 z-50 flex w-full justify-between px-20 py-[1rem]">
+      <div className="flex cursor-pointer items-center gap-x-2">
+        <img src="/logo.svg" alt="logo" width={48} height={48} />
+        <p className="font-symtext text-[1.25rem] text-white">XHUNTER</p>
+      </div>
+      <div className="flex items-center gap-x-4 text-[1rem] uppercase text-white">
+        <EnterIcon />
+        <p className={linkClassname}>about us</p>
+        <EnterIcon />
+        <p className={linkClassname}>logs</p>
+        <EnterIcon />
+        <p className={linkClassname}>contacts</p>
       </div>
     </div>
   );
