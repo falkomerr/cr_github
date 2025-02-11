@@ -15,8 +15,12 @@ export default function App() {
     };
 
     document.addEventListener('keydown', handleKey);
+    document.addEventListener('mouseup', handleKey);
 
-    return () => document.removeEventListener('keydown', handleKey);
+    return () => {
+      document.removeEventListener('keydown', handleKey);
+      document.removeEventListener('mouseup', handleKey);
+    };
   }, []);
   return (
     <>
