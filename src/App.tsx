@@ -10,7 +10,7 @@ export default function App() {
   const [visibleColumns, setVisibleColumns] = useState(1);
 
   useEffect(() => {
-    const handleKey = (event: KeyboardEvent) => {
+    const handleKey = () => {
       setVisibleColumns((prev) => prev + 1);
     };
 
