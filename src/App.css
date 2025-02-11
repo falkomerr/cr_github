@@ -5,4 +5,17 @@
   :root {
     --radius: 0.5rem;
   }
+  @font-face {
+    font-family: 'Symtext';
+    font-weight: 400;
+     src: local("Symtext"), url("./assets/fonts/Symtext.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: 'Homespun';
+    font-weight: 400;
+    src: local("Homespun"), url("./assets/fonts/homespun.ttf") format("truetype");
+  }
 }
+
+
+
