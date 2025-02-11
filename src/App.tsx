@@ -9,6 +9,7 @@ import { TypingAnimation } from './components/typing-animation.tsx';
 export default function App() {
   const [visibleColumns, setVisibleColumns] = useState(1);
 
+
   useEffect(() => {
     const handleKey = (event: KeyboardEvent) => {
       if (event.code === 'Space') {
@@ -36,7 +37,7 @@ export default function App() {
           {visibleColumns >= 1 && (
             <TypingAnimation
               duration={50}
-              className="absolute left-4 top-4 max-w-[22.5rem] whitespace-pre-line text-start text-[0.875rem] font-bold text-white"
+              className=
               text="$ agent_status
                   "
             />
@@ -45,7 +46,7 @@ export default function App() {
           {visibleColumns >= 2 && (
             <TypingAnimation
               duration={50}
-              className="absolute left-4 top-8 max-w-[22.5rem] whitespace-pre-line text-start text-[0.875rem] font-bold text-white"
+              className="absolute left-4 font-monospace top-8 max-w-[22.5rem] whitespace-pre-line text-start text-[0.875rem] font-bold text-white"
               text="        name: AXAI
 
                   "
@@ -55,7 +56,7 @@ export default function App() {
           {visibleColumns >= 3 && (
             <TypingAnimation
               duration={50}
-              className="absolute left-4 top-12 max-w-[22.5rem] whitespace-pre-line text-start text-[0.875rem] font-bold text-white"
+              className="absolute left-4 font-monospace top-12 max-w-[22.5rem] whitespace-pre-line text-start text-[0.875rem] font-bold text-white"
               text="        eliza_runtime: v0.1.9
 
                   "
@@ -65,7 +66,7 @@ export default function App() {
           {visibleColumns >= 4 && (
             <TypingAnimation
               duration={50}
-              className="absolute left-4 top-16 max-w-[22.5rem] whitespace-pre-line text-start text-[0.875rem] font-bold text-white"
+              className="absolute left-4 font-monospace top-16 max-w-[22.5rem] whitespace-pre-line text-start text-[0.875rem] font-bold text-white"
               text="        source: github.com/elizaOS/eliza
 
                   "
@@ -74,7 +75,7 @@ export default function App() {
           {visibleColumns >= 5 && (
             <TypingAnimation
               duration={50}
-              className="absolute left-4 top-[5.1rem] max-w-[22.5rem] whitespace-pre-line text-start text-[0.875rem] font-bold leading-[0.9rem] text-white"
+              className="absolute left-4 font-monospace top-[5.1rem] max-w-[22.5rem] whitespace-pre-line text-start text-[0.875rem] font-bold leading-[0.9rem] text-white"
               text="
         contract_address: 6VtLk3Q7d9cDQ9RxJaMU7aa7GW6NZQpnBiUbve4Ypump
 

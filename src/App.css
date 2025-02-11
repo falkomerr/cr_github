@@ -15,6 +15,11 @@
     font-weight: 400;
     src: local("Homespun"), url("./assets/fonts/homespun.ttf") format("truetype");
   }
+  @font-face {
+    font-family: 'Monospace';
+    font-weight: 400;
+    src: local("Monospace"), url("./assets/fonts/MonospaceRegular.ttf") format("truetype");
+  }
 }
 
 

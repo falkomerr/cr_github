@@ -12,6 +12,7 @@ export default {
       fontFamily: {
         symtext: ['Symtext'],
         homespun: ['Homespun'],
+        monospace: ['Monospace'],
       },
       colors: {},
     },
