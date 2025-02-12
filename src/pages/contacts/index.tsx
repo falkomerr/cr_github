@@ -1,7 +1,8 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import TextCursorProximity from '../../components/text-cursor-proximity.tsx';
 import { Checkbox } from '../../components/checkbox.tsx';
 import { Magnetic } from '../../components/magnetic.tsx';
+import { toast } from '../../hooks/use-toast.ts';
 
 const SOCIAL_LINKS = [
   {
@@ -24,6 +25,15 @@ export default () => {
 
 const Text = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [email, setEmail] = useState('');
+
+  const handleGoClick = () => {
+    if (email.length >= 5) {
+      toast({
+        title: 'Sent!',
+      });
+    }
+  };
 
   return (
     <div
@@ -55,14 +65,18 @@ const Text = () => {
           />
 
           <p className="mt-5 max-w-[32.8125rem] font-homespun text-[1.5rem] leading-[2rem]">
-            Subscribe and keep up to date with the latest news!
+            Subscribe and keep up to <br /> date with the latest news!
           </p>
           <div className="mt-5 flex items-center">
             <input
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="E-mail"
-              className="rounded-bl-xl rounded-tl-xl border-2 border-r-0 border-[#0D99FF] bg-[#0D99FF]/25 px-6 py-4 font-homespun text-[1.75rem] text-white placeholder:opacity-25"
+              className="rounded-bl-xl rounded-tl-xl border-2 border-r-0 border-[#0D99FF] bg-[#0D99FF]/25 px-6 py-4 font-homespun text-[1.75rem] text-white outline-0 placeholder:opacity-25"
             />
-            <button className="h-[4rem] rounded-br-xl rounded-tr-xl bg-[#0D99FF] px-6 py-4 font-homespun text-[1.75rem] text-white">
+            <button
+              onClick={handleGoClick}
+              className="h-[4rem] rounded-br-xl rounded-tr-xl bg-[#0D99FF] px-6 py-4 font-homespun text-[1.75rem] text-white">
               GO
             </button>
           </div>
@@ -79,7 +93,7 @@ const Text = () => {
               Agreement.
             </label>
           </div>
-          <div className="mt-5 flex items-center justify-start space-x-3">
+          <div className="mt-8 flex items-center justify-start space-x-3">
             {SOCIAL_LINKS.map((link) => (
               <MagneticSocialLink key={link.label} link={link.link}>
                 {link.label}
@@ -103,7 +117,7 @@ function MagneticSocialLink({
     <Magnetic springOptions={{ bounce: 0 }} intensity={0.3}>
       <a
         href={link}
-        className="group relative inline-flex shrink-0 items-center gap-[1px] rounded-full bg-zinc-100 px-2.5 py-1 text-sm text-black transition-colors duration-300 hover:bg-[#0D99FF] hover:text-zinc-50">
+        className="group relative inline-flex shrink-0 items-center gap-[1px] rounded-full bg-zinc-100 px-3 py-1.5 text-base text-sm text-black transition-colors duration-300 hover:bg-[#0D99FF] hover:text-zinc-50">
         {children}
         <svg
           width="15"

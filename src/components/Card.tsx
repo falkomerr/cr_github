@@ -1,8 +1,16 @@
 import { AnimatePresence, motion } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
+import { cn } from '../lib/utils.ts';
 
 export const Card = ({ children }: { children?: React.ReactNode }) => {
+  const { pathname } = useLocation();
+
   return (
-    <div className="group/canvas-card relative mx-auto flex h-screen w-screen items-center justify-center bg-black p-4 dark:border-white/[0.2]">
+    <div
+      className={cn(
+        'group/canvas-card relative mx-auto flex h-fit min-h-[100vh] w-screen items-center justify-center bg-black p-4 dark:border-white/[0.2]',
+        pathname === '/' && 'min-h-[107vh]',
+      )}>
       <Icon className="absolute -left-3 -top-3 h-6 w-6 text-black dark:text-white" />
       <Icon className="absolute -bottom-3 -left-3 h-6 w-6 text-black dark:text-white" />
       <Icon className="absolute -right-3 -top-3 h-6 w-6 text-black dark:text-white" />

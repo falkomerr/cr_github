@@ -70,18 +70,39 @@ const Text = () => {
           </button>
         </MagneticButton>
 
-        <div className="ml-8 flex gap-x-[2.625rem]">
-          {cardTexts.map((item, i) => (
-            <CardContainer className="inter-var" key={i}>
-              <CardBody className="group/card relative flex h-[13.5rem] w-[29.75rem] items-center justify-center rounded-xl border border-[#686E72] bg-gradient-to-b from-[#051420] to-[#03111C] px-[3.375rem] py-[1.875rem] dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1]">
-                <CardItem
-                  translateZ="50"
-                  className="relative z-[999] whitespace-break-spaces font-homespun text-[1.2rem]">
-                  {item}
-                </CardItem>
-              </CardBody>
-            </CardContainer>
-          ))}
+        <div className="flex flex-col gap-y-5">
+          <div className="ml-8 flex w-[calc(full-2rem)] items-end justify-between">
+            <p className="font-symtext text-[1.75rem] leading-8">
+              about
+              <br /> project
+            </p>
+            <svg
+              width="21"
+              height="21"
+              viewBox="0 0 21 21"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M19.5 1L1 19.5M1 19.5V3.5M1 19.5H17.5"
+                stroke="white"
+                stroke-width="2"
+              />
+            </svg>
+          </div>
+          <hr className="ml-8 w-[calc(full-2rem)] bg-white" />
+          <div className="mb-20 ml-8 flex gap-x-[2.625rem]">
+            {cardTexts.map((item, i) => (
+              <CardContainer className="inter-var" key={i}>
+                <CardBody className="group/card relative flex h-[13.5rem] w-[29.75rem] items-center justify-center rounded-xl border border-[#686E72] bg-gradient-to-b from-[#051420] to-[#03111C] px-[3.375rem] py-[1.875rem] dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1]">
+                  <CardItem
+                    translateZ="50"
+                    className="relative z-[999] whitespace-break-spaces font-homespun text-[1.2rem]">
+                    {item}
+                  </CardItem>
+                </CardBody>
+              </CardContainer>
+            ))}
+          </div>
         </div>
       </div>
     </div>
