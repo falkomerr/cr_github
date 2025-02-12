@@ -73,10 +73,10 @@ const Text = () => {
         <div className="ml-8 flex gap-x-[2.625rem]">
           {cardTexts.map((item, i) => (
             <CardContainer className="inter-var" key={i}>
-              <CardBody className="group/card relative h-[16.5rem] w-[32.75rem] rounded-xl border border-[#686E72] bg-gradient-to-b from-[#051420] to-[#03111C] px-[3.375rem] py-[1.875rem] dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1]">
+              <CardBody className="group/card relative flex h-[13.5rem] w-[29.75rem] items-center justify-center rounded-xl border border-[#686E72] bg-gradient-to-b from-[#051420] to-[#03111C] px-[3.375rem] py-[1.875rem] dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1]">
                 <CardItem
                   translateZ="50"
-                  className="relative z-[999] font-homespun text-[1.4375rem]">
+                  className="relative z-[999] whitespace-break-spaces font-homespun text-[1.2rem]">
                   {item}
                 </CardItem>
               </CardBody>
