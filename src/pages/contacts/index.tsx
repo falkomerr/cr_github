@@ -10,7 +10,7 @@ const SOCIAL_LINKS = [
   },
   {
     label: 'Telegram',
-    link: 'https://instagram.com',
+    link: 'https://x.com/xhunterai_?s=21',
   },
 ];
 
