@@ -24,8 +24,8 @@ function MagneticButton({ children, distance = 0.6 }: MagneticButtonType) {
     const calculateDistance = (e: MouseEvent) => {
       if (ref.current) {
         const rect = ref.current.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 4;
-        const centerY = rect.top + rect.height / 4;
+        const centerX = rect.left + rect.width / 10;
+        const centerY = rect.top + rect.height / 20;
         const distanceX = e.clientX - centerX;
         const distanceY = e.clientY - centerY;
 
