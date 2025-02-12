@@ -75,7 +75,7 @@ const Text = () => {
           </MagneticButton>
 
           <CardSpotlight className="h-fit w-[36.8125rem]">
-            <p className="font-homespun text-[1.75rem]">
+            <p className="relative z-[999] font-homespun text-[1.75rem]">
               It analyzes patterns of aggressive trading, detects moments of
               excess confidence or panic, and signals when volatility is driven
               by human behavior rather than fundamentals.
