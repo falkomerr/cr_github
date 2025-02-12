@@ -89,8 +89,7 @@ const Text = () => {
             <label
               htmlFor="terms"
               className="max-w-[20.375rem] font-homespun text-[1.1rem]">
-              By clicking the "Go" button, you accept the terms of the User
-              Agreement.
+              I accept the terms of the User Agreement
             </label>
           </div>
           <div className="mt-12 flex items-center justify-start space-x-3">
