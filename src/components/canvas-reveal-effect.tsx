@@ -1,7 +1,8 @@
 'use client';
 import { cn } from '../lib/utils';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import React, { useMemo, useRef } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import * as THREE from 'three';
 
 export const CanvasRevealEffect = ({
@@ -23,23 +24,37 @@ export const CanvasRevealEffect = ({
   dotSize?: number;
   showGradient?: boolean;
 }) => {
+  const [loading, setLoading] = useState(false);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    setLoading(true);
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 50);
+
+    return () => clearTimeout(timeout);
+  }, [pathname]);
+
   return (
     <div className={cn('relative h-full w-full bg-white', containerClassName)}>
       <div className="h-full w-full">
-        <DotMatrix
-          colors={colors ?? [[0, 255, 255]]}
-          dotSize={dotSize ?? 3}
-          opacities={
-            opacities ?? [0.3, 0.3, 0.3, 0.5, 0.5, 0.5, 0.8, 0.8, 0.8, 1]
-          }
-          shader={`
+        {!loading && (
+          <DotMatrix
+            colors={colors ?? [[0, 255, 255]]}
+            dotSize={dotSize ?? 3}
+            opacities={
+              opacities ?? [0.3, 0.3, 0.3, 0.5, 0.5, 0.5, 0.8, 0.8, 0.8, 1]
+            }
+            shader={`
               float animation_speed_factor = ${animationSpeed.toFixed(1)};
               float intro_offset = distance(u_resolution / 2.0 / u_total_size, st2) * 0.01 + (random(st2) * 0.15);
               opacity *= step(intro_offset, u_time * animation_speed_factor);
               opacity *= clamp((1.0 - step(intro_offset + 0.1, u_time * animation_speed_factor)) * 1.25, 1.0, 1.25);
             `}
-          center={['x', 'y']}
-        />
+            center={['x', 'y']}
+          />
+        )}
       </div>
       {showGradient && (
         <>
@@ -66,8 +81,8 @@ export const CanvasRevealEffect = ({
                 x2="563.344"
                 y2="1766.5"
                 gradientUnits="userSpaceOnUse">
-                <stop stop-color="#030B19" />
-                <stop offset="1" stop-opacity="0" />
+                <stop stopColor="#030B19" />
+                <stop offset="1" stopOpacity="0" />
               </linearGradient>
             </defs>
           </svg>
@@ -319,7 +334,9 @@ const ShaderMaterial = ({
 
 const Shader: React.FC<ShaderProps> = ({ source, uniforms, maxFps = 60 }) => {
   return (
-    <Canvas className="absolute inset-0 h-full w-full">
+    <Canvas
+      gl={{ preserveDrawingBuffer: true }}
+      className="absolute inset-0 h-full w-full">
       <ShaderMaterial source={source} uniforms={uniforms} maxFps={maxFps} />
     </Canvas>
   );
