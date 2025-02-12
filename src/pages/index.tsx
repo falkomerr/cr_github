@@ -35,7 +35,7 @@ const Text = () => {
       className="absolute bottom-1/2 left-[52%] right-[60%] top-[55%] flex h-fit w-full -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center p-6 sm:p-12 md:p-16 lg:p-24"
       ref={containerRef}>
       <div
-        className="relative flex w-fit cursor-pointer flex-col items-start justify-center px-6 text-white"
+        className="relative flex w-fit flex-col items-start justify-center px-6 text-white"
         style={{
           backgroundColor: 'transparent',
           minHeight: '250px',
@@ -59,7 +59,7 @@ const Text = () => {
             containerRef={containerRef}
           />
 
-          <p className="max-w-[32.8125rem] font-homespun text-[1.5rem] leading-[2rem]">
+          <p className="mt-5 max-w-[32.8125rem] font-homespun text-[1.5rem] leading-[2rem]">
             XHUNTER tracks high-risk participants in Solana’s meme coin space.
           </p>
         </div>
