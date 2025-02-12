@@ -4,11 +4,7 @@ import { useRef } from 'react';
 import TextCursorProximity from '../components/text-cursor-proximity.tsx';
 import { MagneticButton } from '../components/magnetic-button.tsx';
 import { Console } from '../components/Console.tsx';
-import {
-  CardBody,
-  CardContainer,
-  CardItem,
-} from '../components/ui/3d-card.tsx';
+import { CardBody, CardContainer, CardItem } from '../components/3d-card.tsx';
 
 const text = `$ agent_status
 name: XHUNTER
