@@ -65,7 +65,7 @@ const Text = () => {
         </div>
 
         <MagneticButton>
-          <button className="mb-[5.25rem] mt-[3.375rem] rounded-xl bg-[#0D99FF] px-10 py-4 font-homespun text-xl text-white transition-colors duration-300 hover:opacity-90">
+          <button className="mb-[4rem] mt-[3.375rem] rounded-xl bg-[#0D99FF] px-10 py-4 font-homespun text-xl text-white transition-colors duration-300 hover:opacity-90">
             Go enter
           </button>
         </MagneticButton>
