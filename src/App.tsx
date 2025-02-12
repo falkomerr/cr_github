@@ -5,12 +5,41 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { CanvasRevealEffect } from './components/canvas-reveal-effect';
 import TextCursorProximity from './components/text-cursor-proximity.tsx';
 import { TypingAnimation } from './components/typing-animation.tsx';
+import { MagneticButton } from './components/magnetic-button.tsx';
+import { CardSpotlight } from './components/card-spotlight.tsx';
+
+const text = `* AXAI Framework Ver 1.0ㅤㅤㅤ
+* Advanced Analysis Systemㅤ
+* Response Protocol Active              
+* AXAI Research Division                
+*****************************
+
+Usage: xhunter [options]
+-s: social links (shows all social platforms)
+    ⤷ displays all available community links
+-x: x/twitter profile
+    ⤷ follow announcements
+
+[SYSTEM] Analyzing input pattern...
+[STATUS] Command indexed.
+root@axai: ~#`;
+
+const infText = `
+root@axai: ~#`;
 
 export default function App() {
+  const [textState, setText] = useState(text);
   const [visibleColumns, setVisibleColumns] = useState(1);
+  const lines = textState.split('\n').map((line, i) => ({
+    text: line,
+    i: i + 1,
+  }));
 
   useEffect(() => {
     const handleKey = () => {
+      if (visibleColumns >= lines.length && visibleColumns < 35) {
+        setText((text) => text + infText);
+      }
       setVisibleColumns((prev) => prev + 1);
     };
 
@@ -21,7 +50,7 @@ export default function App() {
       document.removeEventListener('keydown', handleKey);
       document.removeEventListener('mouseup', handleKey);
     };
-  }, []);
+  }, [visibleColumns]);
   return (
     <>
       <div className="mx-auto flex w-full max-w-[100vw] flex-col items-center justify-center gap-4 overflow-hidden bg-white dark:bg-black lg:flex-row">
@@ -36,61 +65,29 @@ export default function App() {
 
           <Text />
 
-          {visibleColumns >= 1 && (
-            <>
-              <TypingAnimation
-                showCaret={visibleColumns === 1}
-                duration={50}
-                className="absolute left-4 top-8 max-w-[22.5rem] whitespace-pre-line text-start font-monospace text-[0.875rem] font-bold text-white"
-                text="$ agent_status
-                  "
-              />
-            </>
-          )}
+          <div className="max-w-[24.5rem]">
+            {lines.map((line, i) => (
+              <>
+                {visibleColumns >= line.i && (
+                  <TypingAnimation
+                    key={i}
+                    showCaret={
+                      line.i === lines.length
+                        ? visibleColumns >= line.i
+                        : visibleColumns === line.i
+                    }
+                    duration={50}
+                    style={{
+                      top: 2 + i + 'rem',
+                    }}
+                    className="absolute left-4 whitespace-pre-line text-start font-monospace text-[0.875rem] font-bold text-white"
+                    text={line.text}
+                  />
+                )}
+              </>
+            ))}
+          </div>
 
-          {visibleColumns >= 2 && (
-            <TypingAnimation
-              showCaret={visibleColumns === 2}
-              duration={50}
-              className="absolute left-4 top-12 max-w-[22.5rem] whitespace-pre-line text-start font-monospace text-[0.875rem] font-bold text-white"
-              text="        name: XHUNTER
-
-                  "
-            />
-          )}
-
-          {visibleColumns >= 3 && (
-            <TypingAnimation
-              showCaret={visibleColumns === 3}
-              duration={50}
-              className="absolute left-4 top-16 max-w-[22.5rem] whitespace-pre-line text-start font-monospace text-[0.875rem] font-bold text-white"
-              text="        eliza_runtime: v0.1.9
-
-                  "
-            />
-          )}
-
-          {visibleColumns >= 4 && (
-            <TypingAnimation
-              showCaret={visibleColumns === 4}
-              duration={50}
-              className="absolute left-4 top-20 max-w-[22.5rem] whitespace-pre-line text-start font-monospace text-[0.875rem] font-bold text-white"
-              text="        source: https://xhunterai.com/
-
-                  "
-            />
-          )}
-          {visibleColumns >= 5 && (
-            <TypingAnimation
-              showCaret={visibleColumns >= 5}
-              duration={50}
-              className="absolute left-4 top-[6.2rem] max-w-[22.5rem] whitespace-pre-line text-start font-monospace text-[0.875rem] font-bold leading-[0.9rem] text-white"
-              text="
-        Loading...
-
-                  "
-            />
-          )}
           <Footer />
         </Card>
       </div>
@@ -141,7 +138,7 @@ const Text = () => {
       className="absolute bottom-1/2 left-[52%] right-[60%] top-1/2 flex h-fit w-full -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center p-6 sm:p-12 md:p-16 lg:p-24"
       ref={containerRef}>
       <div
-        className="relative flex w-full cursor-pointer items-center justify-center overflow-hidden text-white"
+        className="relative flex w-full cursor-pointer items-center justify-center px-6 py-20 text-white"
         style={{
           backgroundColor: 'transparent',
           minHeight: '250px',
@@ -167,8 +164,8 @@ const Text = () => {
           </p>
 
           <TextCursorProximity
-            label="COMING"
-            className="font-symtext text-[10rem] uppercase will-change-transform"
+            label="x.hunterai"
+            className="font-symtext text-[7rem] uppercase will-change-transform"
             styles={{
               transform: {
                 from: 'scale(1)',
@@ -183,23 +180,24 @@ const Text = () => {
             radius={100}
             containerRef={containerRef}
           />
-          <TextCursorProximity
-            label="SOON"
-            className="font-symtext text-[10rem] uppercase leading-none will-change-transform"
-            styles={{
-              transform: {
-                from: 'scale(1)',
-                to: 'scale(1.2)',
-              },
-              color: {
-                from: '#FFFFFF',
-                to: '#0F81BE',
-              },
-            }}
-            falloff="gaussian"
-            radius={100}
-            containerRef={containerRef}
-          />
+
+          <p className="max-w-[32.8125rem] font-homespun text-[1.5rem] leading-[2rem]">
+            XHUNTER tracks high-risk participants in Solana’s meme coin space.
+          </p>
+
+          <MagneticButton>
+            <button className="mb-[6.25rem] mt-[3.375rem] rounded-xl bg-[#0D99FF] px-10 py-4 font-homespun text-xl text-white transition-colors duration-300 hover:opacity-90">
+              Go enter
+            </button>
+          </MagneticButton>
+
+          <CardSpotlight className="h-fit w-[36.8125rem]">
+            <p className="font-homespun text-[1.75rem]">
+              It analyzes patterns of aggressive trading, detects moments of
+              excess confidence or panic, and signals when volatility is driven
+              by human behavior rather than fundamentals.
+            </p>
+          </CardSpotlight>
         </div>
       </div>
     </div>

@@ -10,12 +10,14 @@ interface TypingAnimationProps {
   duration?: number;
   className?: string;
   showCaret: boolean;
+  style?: React.CSSProperties;
 }
 
 export function TypingAnimation({
   text,
   duration = 200,
   className,
+  style,
   showCaret,
 }: TypingAnimationProps) {
   const [displayedText, setDisplayedText] = useState<string>('');
@@ -41,7 +43,8 @@ export function TypingAnimation({
       className={cn(
         'font-display flex flex-wrap items-center gap-x-0.5 text-center text-4xl font-bold leading-[5rem] tracking-[-0.02em] drop-shadow-sm',
         className,
-      )}>
+      )}
+      style={style}>
       {displayedText}
       {showCaret && (
         <motion.div
