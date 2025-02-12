@@ -93,7 +93,7 @@ const Text = () => {
               Agreement.
             </label>
           </div>
-          <div className="mt-8 flex items-center justify-start space-x-3">
+          <div className="mt-12 flex items-center justify-start space-x-3">
             {SOCIAL_LINKS.map((link) => (
               <MagneticSocialLink key={link.label} link={link.link}>
                 {link.label}
