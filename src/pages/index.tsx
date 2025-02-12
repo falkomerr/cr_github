@@ -24,7 +24,7 @@ export default function Index() {
       <Text />
       <SplineScene
         scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-        className="absolute right-[23rem] top-[4.7rem] z-[9999] !h-[35rem] !w-[35rem]"
+        className="absolute right-[23rem] top-[4.69rem] z-[999] !h-[35rem] !w-[35rem]"
       />
       <svg
         className="absolute right-[23rem] top-[4.7rem] !h-[35rem] !w-[35rem]"
@@ -146,7 +146,7 @@ const Text = () => {
               />
             </svg>
           </div>
-          <hr className="ml-8 w-[calc(full-2rem)] bg-white" />
+          <hr className="z-[99999] ml-8 w-[calc(full-2rem)] bg-white" />
           <div className="mb-20 ml-8 mt-4 flex gap-x-[2.625rem]">
             {cardTexts.map((item, i) => (
               <CardContainer className="inter-var" key={i}>
