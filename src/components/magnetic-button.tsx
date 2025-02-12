@@ -49,6 +49,7 @@ function MagneticButton({ children, distance = 0.6 }: MagneticButtonType) {
   return (
     <motion.div
       ref={ref}
+      className="flex w-[14rem] items-center justify-center"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       style={{
