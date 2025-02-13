@@ -86,13 +86,13 @@ const Text = () => {
         </div>
 
         <div className="flex w-full items-center gap-y-8">
-          <Link href="/logs" className="mx-8">
+          <Link to="/logs" className="mx-8">
             <button className="mb-[4rem] mt-[3.375rem] rounded-xl bg-[#0D99FF] px-10 py-4 font-homespun text-xl text-white transition-colors duration-300 hover:opacity-90">
               Go Dapp
             </button>
           </Link>
 
-          <Link href="/terminal">
+          <Link to="/terminal">
             <button className="mb-[4rem] mt-[3.375rem] rounded-xl border-2 border-[#0D99FF] bg-[#0D99FF]/25 px-10 py-4 font-homespun text-xl text-white transition-colors duration-300 hover:opacity-90">
               Go Terminal
             </button>
