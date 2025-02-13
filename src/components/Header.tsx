@@ -19,7 +19,7 @@ export const Header = () => {
       </div>
       <div className="flex cursor-pointer items-center">
         <img src="/logo.svg" alt="logo" width={60} height={60} />
-        <p className="font-symtext text-[1.625rem] text-white">XHUNTER</p>
+        <p className="font-symtext text-[1.625rem] text-white">XHUNTERAi</p>
       </div>
     </div>
   );
