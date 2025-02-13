@@ -4,14 +4,14 @@ import { World } from './globe.tsx';
 export function GlobeDemo() {
   const globeConfig = {
     pointSize: 4,
-    globeColor: '#062056',
+    globeColor: '#0D99FF',
     showAtmosphere: true,
     atmosphereColor: '#FFFFFF',
     atmosphereAltitude: 0.1,
     emissive: '#062056',
     emissiveIntensity: 0.1,
     shininess: 0.9,
-    polygonColor: 'rgba(255,255,255,0.7)',
+    polygonColor: '#054472',
     ambientLight: '#38bdf8',
     directionalLeftLight: '#ffffff',
     directionalTopLight: '#ffffff',
@@ -388,9 +388,5 @@ export function GlobeDemo() {
     },
   ];
 
-  return (
-    <div className="absolute -right-[35rem] top-16 z-10 h-full w-full scale-[0.65]">
-      <World data={sampleArcs} globeConfig={globeConfig} />
-    </div>
-  );
+  return <World data={sampleArcs} globeConfig={globeConfig} />;
 }

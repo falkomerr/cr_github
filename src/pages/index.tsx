@@ -34,7 +34,7 @@ const Text = () => {
 
   return (
     <div
-      className="absolute bottom-1/2 left-[52%] right-[60%] top-[55%] flex h-fit w-full -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center p-6 sm:p-12 md:p-16 lg:p-24"
+      className="absolute bottom-1/2 left-[52%] right-[60%] top-[55%] z-[999] flex h-fit w-full -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center p-6 sm:p-12 md:p-16 lg:p-24"
       ref={containerRef}>
       <div
         className="relative flex w-fit flex-col items-start justify-center px-6 text-white"
@@ -43,10 +43,10 @@ const Text = () => {
           minHeight: '250px',
         }}>
         <div className="ml-4 flex flex-col justify-center pl-6 pt-4 leading-none">
-          <div className="flex gap-x-0">
+          <div className="z-[9999] flex gap-x-0">
             <TextCursorProximity
               label="x.hunter"
-              className="font-symtext text-[7rem] uppercase will-change-transform"
+              className="relative z-50 font-symtext text-[7rem] uppercase will-change-transform"
               styles={{
                 transform: {
                   from: 'scale(1)',
@@ -63,7 +63,7 @@ const Text = () => {
             />
             <TextCursorProximity
               label="ai"
-              className="font-symtext text-[7rem] uppercase will-change-transform"
+              className="relative z-50 font-symtext text-[7rem] uppercase will-change-transform"
               styles={{
                 transform: {
                   from: 'scale(1)',
@@ -85,11 +85,13 @@ const Text = () => {
           </p>
         </div>
 
-        <MagneticButton>
-          <button className="mb-[4rem] mt-[3.375rem] rounded-xl bg-[#0D99FF] px-10 py-4 font-homespun text-xl text-white transition-colors duration-300 hover:opacity-90">
-            Go enter
-          </button>
-        </MagneticButton>
+        <a href="/logs">
+          <MagneticButton>
+            <button className="mb-[4rem] mt-[3.375rem] rounded-xl bg-[#0D99FF] px-10 py-4 font-homespun text-xl text-white transition-colors duration-300 hover:opacity-90">
+              Go Dapp
+            </button>
+          </MagneticButton>
+        </a>
 
         <div className="flex flex-col gap-y-5">
           <div className="ml-8 flex w-[calc(full-2rem)] items-end justify-between">

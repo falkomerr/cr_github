@@ -14,11 +14,17 @@ Usage: xhunter [options]
 
 [SYSTEM] Analyzing input pattern...
 [STATUS] Command indexed.
-root@xhunter: ~#`;
+root@xhunter: ~#:`;
 
 const infText = `
-root@xhunter: ~#`;
+root@xhunter: ~#:`;
 
 export default () => {
-  return <Console text={text} infText={infText} />;
+  return (
+    <Console
+      className="rounded-xl border-2 border-[#0D99FF] bg-[#0D99FF]/25"
+      text={text}
+      infText={infText}
+    />
+  );
 };

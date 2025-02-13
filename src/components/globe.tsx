@@ -248,7 +248,10 @@ export function World(props: WorldProps) {
   const scene = new Scene();
   scene.fog = new Fog(0xffffff, 400, 2000);
   return (
-    <Canvas scene={scene} camera={new PerspectiveCamera(50, aspect, 180, 1800)}>
+    <Canvas
+      scene={scene}
+      camera={new PerspectiveCamera(50, aspect, 180, 1800)}
+      className="!absolute -right-[30rem] -top-14 z-0 h-full w-full scale-[0.75]">
       <WebGLRendererConfig />
       <ambientLight color={globeConfig.ambientLight} intensity={0.6} />
       <directionalLight
@@ -262,7 +265,7 @@ export function World(props: WorldProps) {
       <pointLight
         color={globeConfig.pointLight}
         position={new Vector3(-200, 500, 200)}
-        intensity={0.8}
+        intensity={0.6}
       />
       <Globe {...props} />
       <OrbitControls

@@ -1,14 +1,17 @@
 import { Fragment, useEffect, useState } from 'react';
 import { TypingAnimation } from './typing-animation.tsx';
+import { cn } from '../lib/utils.ts';
 
 export const Console = ({
   text,
   infText,
   initialTop = 8,
+  className,
 }: {
   text: string;
   infText?: string;
   initialTop?: number;
+  className?: string;
 }) => {
   const [textState, setText] = useState(text);
   const [visibleColumns, setVisibleColumns] = useState(1);
@@ -35,7 +38,11 @@ export const Console = ({
   }, [visibleColumns]);
 
   return (
-    <div className="max-w-[24.5rem]">
+    <div
+      className={cn(
+        'absolute left-10 top-16 h-fit w-full max-w-[24.5rem] p-4',
+        className,
+      )}>
       {lines.map((line, i) => (
         <Fragment key={i}>
           {visibleColumns >= line.i && (
@@ -46,10 +53,7 @@ export const Console = ({
                   : visibleColumns === line.i
               }
               duration={50}
-              style={{
-                top: initialTop + i + 'rem',
-              }}
-              className="absolute left-10 whitespace-pre-line text-start font-monospace text-[0.875rem] font-bold text-white"
+              className="whitespace-pre-line text-start font-monospace text-[0.875rem] font-bold text-white"
               text={line.text}
             />
           )}
