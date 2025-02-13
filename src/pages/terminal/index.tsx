@@ -22,6 +22,7 @@ root@xhunter: ~#:`;
 export default () => {
   return (
     <Console
+      canInput
       className="rounded-xl border-2 border-[#0D99FF] bg-[#0D99FF]/25"
       text={text}
       infText={infText}
