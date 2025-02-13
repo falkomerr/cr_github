@@ -5,7 +5,7 @@ import { CanvasRevealEffect } from '../components/canvas-reveal-effect.tsx';
 
 export default ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="mx-auto flex w-full max-w-[100vw] flex-col items-center justify-center gap-4 overflow-hidden bg-black">
+    <div className="mx-auto flex w-full max-w-[100vw] flex-col items-center justify-center gap-4 overflow-hidden bg-red-500">
       <Card>
         <CanvasRevealEffect
           showGradient

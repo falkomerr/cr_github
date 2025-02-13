@@ -5,7 +5,7 @@ import TextCursorProximity from '../components/text-cursor-proximity.tsx';
 import { MagneticButton } from '../components/magnetic-button.tsx';
 import { Console } from '../components/Console.tsx';
 import { CardBody, CardContainer, CardItem } from '../components/3d-card.tsx';
-import { SplineScene } from '../components/splite.tsx';
+import { GlobeDemo } from '../components/GlobeDemo.tsx';
 
 const text = `$ agent_status
 name: XHUNTER
@@ -22,43 +22,7 @@ export default function Index() {
   return (
     <>
       <Text />
-      <SplineScene
-        scene="https://prod.spline.design/O5qBhMBoj6Uy62vk/scene.splinecode"
-        className="absolute right-[20rem] top-[9.69rem] z-[999] !h-[42rem] !w-[40rem] scale-[0.5] overflow-hidden"
-      />
-      <svg
-        className="absolute right-[23rem] top-[4.7rem] !h-[35rem] !w-[35rem]"
-        width="563"
-        height="897"
-        viewBox="0 0 563 897"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg">
-        <g opacity="0.36" filter="url(#filter0_f_97_102)">
-          <ellipse cx="281.5" cy="448.5" rx="107.5" ry="274.5" fill="black" />
-        </g>
-        <defs>
-          <filter
-            id="filter0_f_97_102"
-            x="0.600006"
-            y="0.600006"
-            width="561.8"
-            height="895.8"
-            filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB">
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
-            <feBlend
-              mode="normal"
-              in="SourceGraphic"
-              in2="BackgroundImageFix"
-              result="shape"
-            />
-            <feGaussianBlur
-              stdDeviation="86.7"
-              result="effect1_foregroundBlur_97_102"
-            />
-          </filter>
-        </defs>
-      </svg>
+      <GlobeDemo />
 
       <Console initialTop={2} text={text} />
     </>
