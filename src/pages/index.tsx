@@ -23,8 +23,8 @@ export default function Index() {
     <>
       <Text />
       <SplineScene
-        scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-        className="absolute right-[23rem] top-[4.69rem] z-[999] !h-[35rem] !w-[35rem]"
+        scene="https://prod.spline.design/O5qBhMBoj6Uy62vk/scene.splinecode"
+        className="absolute right-[20rem] top-[9.69rem] z-[999] !h-[42rem] !w-[40rem] scale-[0.5] overflow-hidden"
       />
       <svg
         className="absolute right-[23rem] top-[4.7rem] !h-[35rem] !w-[35rem]"
@@ -79,7 +79,7 @@ const Text = () => {
           minHeight: '250px',
         }}>
         <div className="ml-4 flex flex-col justify-center pl-6 pt-4 leading-none">
-          <div className="flex gap-x-20">
+          <div className="flex gap-x-0">
             <TextCursorProximity
               label="x.hunter"
               className="font-symtext text-[7rem] uppercase will-change-transform"
