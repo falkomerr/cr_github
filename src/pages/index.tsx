@@ -4,8 +4,8 @@ import { useRef } from 'react';
 import TextCursorProximity from '../components/text-cursor-proximity.tsx';
 import { Console } from '../components/Console.tsx';
 import { CardBody, CardContainer, CardItem } from '../components/3d-card.tsx';
-import { GlobeDemo } from '../components/GlobeDemo.tsx';
 import { Link } from 'react-router-dom';
+import { SplineScene } from '../components/splite.tsx';
 
 const text = `$ agent_status
 name: XHUNTER
@@ -22,8 +22,10 @@ export default function Index() {
   return (
     <>
       <Text />
-      <GlobeDemo />
-
+      <SplineScene
+        scene="https://prod.spline.design/s9Q5foF5UUkNQnNv/scene.splinecode"
+        className="absolute top-0 h-full w-full"
+      />
       <Console initialTop={2} text={text} />
     </>
   );

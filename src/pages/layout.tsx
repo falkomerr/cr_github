@@ -13,6 +13,7 @@ export default ({ children }: { children: React.ReactNode }) => {
           containerClassName="bg-sky-600"
           colors={[[125, 211, 252]]}
         />
+
         <Header />
         {children}
         <Footer />
