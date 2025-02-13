@@ -2,7 +2,6 @@
 
 import { useRef } from 'react';
 import TextCursorProximity from '../components/text-cursor-proximity.tsx';
-import { MagneticButton } from '../components/magnetic-button.tsx';
 import { Console } from '../components/Console.tsx';
 import { CardBody, CardContainer, CardItem } from '../components/3d-card.tsx';
 import { GlobeDemo } from '../components/GlobeDemo.tsx';
@@ -85,13 +84,19 @@ const Text = () => {
           </p>
         </div>
 
-        <a href="/logs">
-          <MagneticButton>
+        <div className="flex w-full items-center gap-y-8">
+          <a href="/logs" className="mx-8">
             <button className="mb-[4rem] mt-[3.375rem] rounded-xl bg-[#0D99FF] px-10 py-4 font-homespun text-xl text-white transition-colors duration-300 hover:opacity-90">
               Go Dapp
             </button>
-          </MagneticButton>
-        </a>
+          </a>
+
+          <a href="/terminal">
+            <button className="mb-[4rem] mt-[3.375rem] rounded-xl border-2 border-[#0D99FF] bg-[#0D99FF]/25 px-10 py-4 font-homespun text-xl text-white transition-colors duration-300 hover:opacity-90">
+              Go Terminal
+            </button>
+          </a>
+        </div>
 
         <div className="flex flex-col gap-y-5">
           <div className="ml-8 flex w-[calc(full-2rem)] items-end justify-between">

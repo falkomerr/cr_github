@@ -7,8 +7,10 @@ export const Console = ({
   canInput,
   infText,
   className,
+  bigTopGap,
 }: {
   text: string;
+  bigTopGap?: boolean;
   infText?: string;
   canInput?: boolean;
   initialTop?: number;
@@ -58,7 +60,8 @@ export const Console = ({
   return (
     <div
       className={cn(
-        'absolute left-10 top-20 h-fit w-full max-w-[24.5rem] p-4',
+        'absolute left-10 top-8 h-fit w-full max-w-[24.5rem] p-4',
+        bigTopGap && 'top-28',
         className,
       )}>
       {lines.map((line, i) => (
