@@ -6,6 +6,7 @@ import { Console } from '../components/Console.tsx';
 import { CardBody, CardContainer, CardItem } from '../components/3d-card.tsx';
 import { Link } from 'react-router-dom';
 import { SplineScene } from '../components/splite.tsx';
+import { Loader } from '../components/loader.tsx';
 
 const text = `$ agent_status
 name: XHUNTER
@@ -21,6 +22,7 @@ const cardTexts = [
 export default function Index() {
   return (
     <>
+      <Loader />
       <Text />
       <SplineScene
         scene="https://prod.spline.design/s9Q5foF5UUkNQnNv/scene.splinecode"
@@ -36,7 +38,7 @@ const Text = () => {
 
   return (
     <div
-      className="absolute bottom-1/2 left-[52%] right-[60%] top-[55%] z-[999] flex h-fit w-full -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center p-6 sm:p-12 md:p-16 lg:p-24"
+      className="absolute bottom-1/2 left-[52%] right-[60%] top-[55%] z-[555] flex h-fit w-full -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center p-6 sm:p-12 md:p-16 lg:p-24"
       ref={containerRef}>
       <div
         className="relative flex w-fit flex-col items-start justify-center px-6 text-white"
@@ -45,7 +47,7 @@ const Text = () => {
           minHeight: '250px',
         }}>
         <div className="ml-4 flex flex-col justify-center pl-6 pt-4 leading-none">
-          <div className="z-[9999] flex gap-x-0">
+          <div className="z-[5555] flex gap-x-0">
             <TextCursorProximity
               label="x.hunter"
               className="relative z-50 font-symtext text-[7rem] uppercase will-change-transform"
@@ -120,14 +122,14 @@ const Text = () => {
               />
             </svg>
           </div>
-          <hr className="z-[99999] ml-8 w-[calc(full-2rem)] bg-white" />
+          <hr className="z-[5555] ml-8 w-[calc(full-2rem)] bg-white" />
           <div className="mb-20 ml-8 mt-4 flex gap-x-[2.625rem]">
             {cardTexts.map((item, i) => (
               <CardContainer className="inter-var" key={i}>
                 <CardBody className="group/card relative flex h-[13.5rem] w-[29.75rem] items-center justify-center rounded-xl border border-[#686E72] bg-gradient-to-b from-[#051420] to-[#03111C] px-[3.375rem] py-[1.875rem] dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1]">
                   <CardItem
                     translateZ="50"
-                    className="relative z-[999] whitespace-break-spaces font-homespun text-[1.2rem]">
+                    className="relative z-[5555] whitespace-break-spaces font-homespun text-[1.2rem]">
                     {item}
                   </CardItem>
                 </CardBody>
