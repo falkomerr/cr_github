@@ -11,7 +11,7 @@ export const Header = () => {
         <div className="flex items-center gap-x-3">
           <LeftArrow />
           <a
-            href="https://x.com/xhunterai"
+            href="https://x.com/XHunterAi_"
             target="_blank"
             className="z-50 cursor-pointer transition-all duration-200 hover:scale-[1.1]">
             <img src="/twitter.svg" alt="twitter" width={35} height={35} />

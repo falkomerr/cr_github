@@ -1,25 +1,14 @@
 import { SplineScene } from './splite.tsx';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { animate } from 'framer-motion';
 import { cn } from '../lib/utils.ts';
 
 export const Loader = () => {
-  const [show, setShow] = useState(true);
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setShow(false);
-    }, 4000);
-
-    return () => clearTimeout(timeout);
-  }, []);
-
   return (
     <>
       <div
         className={cn(
-          'absolute inset-0 z-[999] flex items-start justify-start bg-black p-20 opacity-100 transition-all duration-500',
-          !show && '-z-10 opacity-0',
+          'absolute inset-0 z-[999] flex items-start justify-start bg-black p-20',
         )}>
         <SplineScene
           scene="https://prod.spline.design/s9Q5foF5UUkNQnNv/scene.splinecode"

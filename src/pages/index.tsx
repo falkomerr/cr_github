@@ -1,12 +1,14 @@
 'use client';
 
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import TextCursorProximity from '../components/text-cursor-proximity.tsx';
 import { Console } from '../components/Console.tsx';
 import { CardBody, CardContainer, CardItem } from '../components/3d-card.tsx';
 import { Link } from 'react-router-dom';
 import { SplineScene } from '../components/splite.tsx';
 import { Loader } from '../components/loader.tsx';
+import { AnimatePresence, motion } from 'framer-motion';
+import { cn } from '../lib/utils.ts';
 
 const text = `$ agent_status
 name: XHUNTER
@@ -20,16 +22,41 @@ const cardTexts = [
 ];
 
 export default function Index() {
+  const [show, setShow] = useState(true);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setShow(false);
+    }, 4000);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
   return (
-    <>
-      <Loader />
-      <Text />
-      <SplineScene
-        scene="https://prod.spline.design/s9Q5foF5UUkNQnNv/scene.splinecode"
-        className="absolute top-0 h-full w-full"
-      />
-      <Console initialTop={2} text={text} />
-    </>
+    <AnimatePresence>
+      <div
+        className={cn(
+          'opacity-100 transition-all duration-500',
+          !show && '-z-10 opacity-0',
+        )}>
+        <Loader />
+      </div>
+      {!show && (
+        <>
+          <Text />
+          <SplineScene
+            scene="https://prod.spline.design/s9Q5foF5UUkNQnNv/scene.splinecode"
+            className="absolute top-0 h-full w-full"
+          />
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 100 }}
+            transition={{ duration: 0.4 }}>
+            <Console initialTop={2} text={text} />
+          </motion.div>
+        </>
+      )}
+    </AnimatePresence>
   );
 }
 
@@ -47,7 +74,11 @@ const Text = () => {
           minHeight: '250px',
         }}>
         <div className="ml-4 flex flex-col justify-center pl-6 pt-4 leading-none">
-          <div className="z-[5555] flex gap-x-0">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 100 }}
+            transition={{ duration: 0.3 }}
+            className="z-[5555] flex gap-x-0">
             <TextCursorProximity
               label="x.hunter"
               className="relative z-50 font-symtext text-[7rem] uppercase will-change-transform"
@@ -82,14 +113,22 @@ const Text = () => {
               radius={100}
               containerRef={containerRef}
             />
-          </div>
+          </motion.div>
 
-          <p className="mt-5 max-w-[32.8125rem] font-homespun text-[1.5rem] leading-[2rem]">
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 100 }}
+            transition={{ duration: 2 }}
+            className="mt-5 max-w-[32.8125rem] font-homespun text-[1.5rem] leading-[2rem]">
             XHUNTER tracks high-risk participants in Solana’s meme coin space.
-          </p>
+          </motion.p>
         </div>
 
-        <div className="flex w-full items-center gap-y-8">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 100 }}
+          transition={{ duration: 2 }}
+          className="flex w-full items-center gap-y-8">
           <Link to="/logs" className="mx-8">
             <button className="mb-[4rem] mt-[3.375rem] rounded-xl bg-[#0D99FF] px-10 py-4 font-homespun text-xl text-white transition-colors duration-300 hover:bg-[#0badff]">
               Go Dapp
@@ -101,9 +140,13 @@ const Text = () => {
               Go Terminal
             </button>
           </Link>
-        </div>
+        </motion.div>
 
-        <div className="flex flex-col gap-y-5">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 100 }}
+          transition={{ duration: 2 }}
+          className="flex flex-col gap-y-5">
           <div className="ml-8 flex w-[calc(full-2rem)] items-end justify-between">
             <p className="font-symtext text-[1.75rem] leading-8">
               about
@@ -136,7 +179,7 @@ const Text = () => {
               </CardContainer>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
