@@ -18,7 +18,7 @@ export const Loader = () => {
     <>
       <div
         className={cn(
-          'absolute inset-0 z-[999] flex items-start justify-start bg-black p-20 opacity-100 transition-all duration-300',
+          'absolute inset-0 z-[999] flex items-start justify-start bg-black p-20 opacity-100 transition-all duration-500',
           !show && '-z-10 opacity-0',
         )}>
         <SplineScene
