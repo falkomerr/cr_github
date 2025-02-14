@@ -1,6 +1,7 @@
 import { SplineScene } from './splite.tsx';
 import { useEffect, useRef, useState } from 'react';
 import { animate } from 'framer-motion';
+import { cn } from '../lib/utils.ts';
 
 export const Loader = () => {
   const [show, setShow] = useState(true);
@@ -15,15 +16,17 @@ export const Loader = () => {
 
   return (
     <>
-      {show && (
-        <div className="absolute inset-0 z-[999] flex items-start justify-start bg-black p-20">
-          <SplineScene
-            scene="https://prod.spline.design/s9Q5foF5UUkNQnNv/scene.splinecode"
-            className="absolute inset-0 h-full w-full"
-          />
-          <Counter from={0} to={100} />
-        </div>
-      )}
+      <div
+        className={cn(
+          'absolute inset-0 z-[999] flex items-start justify-start bg-black p-20 opacity-100 transition-all duration-300',
+          !show && '-z-10 opacity-0',
+        )}>
+        <SplineScene
+          scene="https://prod.spline.design/s9Q5foF5UUkNQnNv/scene.splinecode"
+          className="absolute inset-0 h-full w-full"
+        />
+        <Counter from={0} to={100} />
+      </div>
     </>
   );
 };
@@ -35,8 +38,7 @@ function Counter({ from, to }: { from: number; to: number }) {
     const node = nodeRef.current;
 
     const controls = animate(from, to, {
-      duration: 2,
-      ease: 'easeInOut',
+      duration: 3,
       onUpdate(value) {
         if (!node) return;
         node.textContent = value.toFixed(0) + '%';
